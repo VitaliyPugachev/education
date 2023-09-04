@@ -12,5 +12,7 @@
   "О сайте": "About us",
   "Toggle": "Toggle",
   "Сокращенный язык": "En",
-  "Войти": "Sigh in"
+  "Войти": "Sigh in",
+  "Increment": "Increment",
+  "Decrement": "Decrement"
 }
