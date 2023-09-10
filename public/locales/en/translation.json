@@ -14,5 +14,7 @@
   "Сокращенный язык": "En",
   "Войти": "Sigh in",
   "Increment": "Increment",
-  "Decrement": "Decrement"
+  "Decrement": "Decrement",
+  "Введите пароль": "Password",
+  "Введите логин": "Login"
 }
