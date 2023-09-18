@@ -93,3 +93,11 @@ OutlineSizeXL.args = {
     theme: ButtonTheme.BACKGROUND_INVERTED,
     size: ButtonSize.XL,
 };
+
+export const disabled = Template.bind({});
+disabled.args = {
+    children: '>',
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    size: ButtonSize.XL,
+    disabled: true,
+};
