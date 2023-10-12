@@ -34,11 +34,11 @@
         margin-left: 0;
     }
 
-    .link {
-        opacity: 0;
-        transition: 0.2s ease;
-        width: 0;
-    }
+    //.link {
+    //    opacity: 0;
+    //    transition: 0.2s ease;
+    //    width: 0;
+    //}
 }
 
 .collapseBtn {
@@ -54,12 +54,12 @@
     flex-direction: column;
 }
 
-.item {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    fill: var(--inverted-primary-color);
-}
+//.item {
+//    margin-top: 10px;
+//    display: flex;
+//    align-items: center;
+//}
+//
+//.icon {
+//    fill: var(--inverted-primary-color);
+//}
