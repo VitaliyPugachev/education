@@ -11,6 +11,20 @@
   margin-left: auto;
 }
 
-.data {
-  margin-top: 30px;
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editing {
+  border: 1px solid var(--inverted-primary-color);
 }

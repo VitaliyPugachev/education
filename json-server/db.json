@@ -44,12 +44,12 @@
     }
   ],
   "profile": {
-    "name": "Vitaliy",
-    "lastname": "Pugachev",
+    "name": "Evgeniy",
+    "lastname": "Petrov",
     "age": "33",
     "currency": "RUB",
     "country": "Russia",
-    "city": "Rostov",
+    "city": "Moscow",
     "username": "admin",
     "avatar": "https://cojo.ru/wp-content/uploads/2022/12/pepe-retroveiv-3.webp"
   }

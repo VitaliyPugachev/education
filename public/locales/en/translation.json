@@ -20,5 +20,8 @@
   "Форма авторизации": "Autorization form",
   "Неверный логин или пароль": "Incorrect login or password",
   "Выйти": "Log out",
-  "ProfilePage": "ProfilePage"
+  "ProfilePage": "ProfilePage",
+  "Отменить": "Отменить",
+  "Сохранить": "Сохранить",
+  "Выберете валюту": "Выберете валюту"
 }
