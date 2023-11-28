@@ -1,0 +1,20 @@
+.ArticleList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.BIG {
+    .card {
+        margin-bottom: 30px;
+        gap: 0;
+    }
+}
+
+.SMALL {
+    display: flex;
+    flex-wrap: wrap;
+    .card {
+        gap: 30px;
+    }
+}

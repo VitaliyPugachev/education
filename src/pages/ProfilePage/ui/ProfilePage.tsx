@@ -1,6 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
     getProfileForm,
@@ -19,6 +22,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/type/profile';
+import { useParams } from 'react-router-dom';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -37,6 +41,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{id: string}>();
 
     const validateErrorsTranslate = {
         [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
@@ -82,8 +87,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    }, [id, dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ProfilePage, {}, [className])}>

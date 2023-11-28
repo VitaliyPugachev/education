@@ -1,0 +1,12 @@
+.Code {
+    border: 1px solid var(--primary-color);
+    padding: 20px;
+    position: relative;
+    background-color: var(--code-bg);
+    overflow-x: scroll;
+}
+
+.copyBtn {
+    position: absolute;
+    right: 20px;
+}
