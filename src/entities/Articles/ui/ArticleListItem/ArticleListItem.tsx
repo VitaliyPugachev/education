@@ -52,18 +52,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         </>
     );
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.card, {}, [className, cls[view]])}>
-                {new Array(view === ArticleView.BIG ? 3 : 9)
-                    .fill(0)
-                    .map((item, index) => (
-                        <ArticleListItemSkeleton view={view} key={index} />
-                    ))}
-            </div>
-        );
-    }
-
     if (view === ArticleView.BIG) {
         const texBlock = article.blocks.find(
             (block: ArticleBlock) => block.type === ArticleBlockType.TEXT,
