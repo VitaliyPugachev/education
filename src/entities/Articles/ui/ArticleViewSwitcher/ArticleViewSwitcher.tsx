@@ -43,12 +43,14 @@ export const ArticleViewSwitcher = memo((props: ArticleViewSwitcherProps) => {
             {
                 viewTypes.map((item) => (
                     <Button
+                        key={item.view}
                         theme={ButtonTheme.CLEAR}
                         onClick={onCLick(item.view)}
                     >
                         <Icon
                             className={classNames('', { [cls.selected]: item.view === view })}
                             Svg={item.icon}
+                            key={item.view}
                         />
                     </Button>
                 ))

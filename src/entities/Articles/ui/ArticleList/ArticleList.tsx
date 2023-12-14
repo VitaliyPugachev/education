@@ -4,6 +4,7 @@ import { memo, useCallback } from 'react';
 import { Article, ArticleView } from 'entities/Articles';
 import { ArticleListItem } from 'entities/Articles/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entities/Articles/ui/ArticleListItem/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -31,6 +32,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const renderArticle = useCallback((article: Article) => (
         <ArticleListItem isLoading={isLoading} article={article} view={view} key={article.id} />
     ), [isLoading, view]);
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={cls.ArticleList}>
+                <Text size={TextSize.M} text={t('Статьи не найдены')} />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

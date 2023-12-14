@@ -12,8 +12,10 @@ import { ArticleDetailsSchema } from 'entities/Articles';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { addCommentFormSchema } from 'feautures/addCommentForm/index';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollSaveSchema } from 'feautures/ScrollSave';
 
 export interface StateSchema {
+    scrollSave: ScrollSaveSchema;
     counter: CounterSchema;
     user: UserSchema;
     login?: LoginSchema;
@@ -24,12 +26,14 @@ export interface StateSchema {
     articlesPage?: ArticlesPageSchema;
 }
 export type StateSchemaKey = keyof StateSchema;
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
     remove: (key: StateSchemaKey) => void;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
+    getMountedReducers: () => MountedReducers
 }
 
 export interface ReduxStoreManager extends EnhancedStore {
@@ -38,7 +42,6 @@ export interface ReduxStoreManager extends EnhancedStore {
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {
