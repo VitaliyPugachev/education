@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { Article, ArticleView } from 'entities/Articles';
 import { ArticleListItem } from 'entities/Articles/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entities/Articles/ui/ArticleListItem/ArticleListItemSkeleton';
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -20,6 +21,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = ArticleView.SMALL,
         isLoading,
+        target,
     } = props;
     const { t } = useTranslation();
 
@@ -30,8 +32,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         ));
 
     const renderArticle = useCallback((article: Article) => (
-        <ArticleListItem isLoading={isLoading} article={article} view={view} key={article.id} />
-    ), [isLoading, view]);
+        <ArticleListItem target={target} isLoading={isLoading} article={article} view={view} key={article.id} />
+    ), [isLoading, target, view]);
 
     if (!isLoading && !articles.length) {
         return (
