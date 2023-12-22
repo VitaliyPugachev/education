@@ -5,6 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlesPageAsync } from 'pages/ArticlesPage';
 import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -12,6 +13,8 @@ export enum AppRoutes {
     PROFILE = 'profile',
     ARTICLES = 'articles',
     ARTICLE_DETAILS = 'article_details',
+    ARTICLE_CREATE = 'article_create',
+    ARTICLE_EDIT = 'article_edit',
 
     NOT_FOUND = 'not_found',
 }
@@ -26,6 +29,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.PROFILE]: '/profile/',
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAILS]: '/article/',
+    [AppRoutes.ARTICLE_CREATE]: '/article/new',
+    [AppRoutes.ARTICLE_EDIT]: '/article/:id/edit',
     // последний
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -54,6 +59,16 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.PROFILE]: {
         path: `${RoutePath.profile}:id`,
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLE_EDIT]: {
+        path: `${RoutePath.article_edit}`,
+        element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLE_CREATE]: {
+        path: `${RoutePath.article_create}`,
+        element: <ArticleEditPage />,
         authOnly: true,
     },
 };

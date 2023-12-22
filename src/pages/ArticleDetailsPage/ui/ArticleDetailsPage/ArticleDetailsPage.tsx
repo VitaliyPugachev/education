@@ -35,6 +35,7 @@ import {
 import {
     fetchArticleRecommendations,
 } from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -48,7 +49,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const error = useSelector(getArticleDetailsError);
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleDetailsRecommendIsLoading);
     const recommendationsError = useSelector(getArticleDetailsRecommendError);
@@ -57,10 +58,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         dispatch(fetchCommentByArticleId(id));
         dispatch(fetchArticleRecommendations());
     }, [dispatch, id]);
-
-    const backToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -82,9 +79,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button onClick={backToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader id={id} />
                 <ArticleDetails articleId={id} />
                 <Text size={TextSize.M} title={t('Рекомендуем')} className={cls.commentTitle} />
                 <ArticleList target="_blank" articles={recommendations} isLoading={recommendationsIsLoading} className={cls.recommendations} />

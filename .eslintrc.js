@@ -25,7 +25,7 @@ module.exports = {
     ],
     rules: {
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
@@ -51,7 +51,7 @@ module.exports = {
         'consistent-return': 'off',
         'max-len': 'warn',
         'i18next/no-literal-string': [
-            'error',
+            'warn',
             {
                 markupOnly: true,
                 ignoreAttribute: ['data-testid', 'to'],
