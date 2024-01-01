@@ -17,13 +17,13 @@ import { useSelector } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileError, getProfileLoading } from 'entities/Profile/index';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/type/profile';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { ProfilePageHeader } from '../../ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {

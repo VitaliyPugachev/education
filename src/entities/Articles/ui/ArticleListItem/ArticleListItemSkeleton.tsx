@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleView } from 'entities/Articles';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Card } from 'shared/ui/Card/Card';
+import { ArticleView } from '../../model/types/articleTypes';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
-import { Article, ArticleView } from 'entities/Articles';
-import { ArticleListItem } from 'entities/Articles/ui/ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from 'entities/Articles/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { Article, ArticleView } from '../../model/types/articleTypes';
+import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {

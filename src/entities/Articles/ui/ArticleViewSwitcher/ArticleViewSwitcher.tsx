@@ -2,10 +2,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import ListIcon from 'shared/assets/icons/list-solid.svg';
-import { ArticleView } from 'entities/Articles';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import TilesIcon from 'shared/assets/icons/Articles.svg';
+import { ArticleView } from '../../model/types/articleTypes';
 import cls from './ArticleViewSwitcher.module.scss';
 
 interface ArticleViewSwitcherProps {

@@ -4,34 +4,34 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducers } from 'entities/Articles/model/slices/articleDetailsSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback, useEffect } from 'react';
-import {
-    fetchArticleById,
-} from 'entities/Articles/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from 'entities/Articles/model/selectors/getArticleDetailsData';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { ArticleBlock, ArticleBlockType } from 'entities/Articles/model/types/articleTypes';
+import { articleDetailsReducers } from '../../model/slices/articleDetailsSlice';
+import {
+    fetchArticleById,
+} from '../../model/services/fetchArticleById/fetchArticleById';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from '../../model/selectors/getArticleDetailsData';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/articleTypes';
 import {
     ArticleCodeBlockComponent,
-} from 'entities/Articles/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+} from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import {
     ArticleImageBlockComponent,
-} from 'entities/Articles/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+} from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import {
     ArticleTextBlockComponent,
-} from 'entities/Articles/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+} from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

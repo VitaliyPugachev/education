@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
-import { fetchProfileData } from 'entities/Profile';
+import { fetchProfileData } from '../../services/fetchProfileData/fetchProfileData';
 
 const data = {
     name: 'Evgeniy',

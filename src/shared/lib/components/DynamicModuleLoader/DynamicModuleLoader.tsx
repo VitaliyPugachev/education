@@ -42,11 +42,11 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props: Dynamic
                 });
             };
         }
-    }, []);
+    }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 
     return (
-        <>
+        <div>
             { children }
-        </>
+        </div>
     );
 };

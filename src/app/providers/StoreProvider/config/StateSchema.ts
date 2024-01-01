@@ -1,4 +1,3 @@
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/user';
 import { LoginSchema } from 'feautures/AuthByUsername/index';
 import {
@@ -6,8 +5,6 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { NavigateFunction, To } from 'react-router-dom';
-import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/Articles';
 import { ArticleDetailsCommentSchema, ArticleDetailsRecommendSchema } from 'pages/ArticleDetailsPage';
 import { addCommentFormSchema } from 'feautures/addCommentForm/index';
@@ -16,7 +13,6 @@ import { ScrollSaveSchema } from 'feautures/ScrollSave';
 
 export interface StateSchema {
     scrollSave: ScrollSaveSchema;
-    counter: CounterSchema;
     user: UserSchema;
     login?: LoginSchema;
     profile?: ProfileSchema;

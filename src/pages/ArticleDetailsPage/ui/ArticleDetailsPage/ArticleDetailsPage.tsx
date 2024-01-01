@@ -2,40 +2,38 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Articles';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment/ui/CommentList/CommentList';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import {
-    articleDetailsCommentsReducer,
-    getArticleComments,
-} from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
 import { useSelector } from 'react-redux';
 import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from 'entities/Articles/model/selectors/getArticleDetailsData';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'feautures/addCommentForm';
+import { Page } from 'widgets/Page/Page';
+import {
+    articleDetailsCommentsReducer,
+    getArticleComments,
+} from '../../model/slices/articleDetailsCommentsSlice';
 import {
     fetchCommentByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentByArticleId';
-import { AddCommentForm } from 'feautures/addCommentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
-import { Button } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'widgets/Page/Page';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
     articleDetailsPageRecommendReducer,
     getArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/slices/articleDetailesRecommendSlice';
+} from '../../model/slices/articleDetailesRecommendSlice';
 import {
     getArticleDetailsRecommendError,
     getArticleDetailsRecommendIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/recommendations';
+} from '../../model/selectors/recommendations';
 import {
     fetchArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -82,7 +80,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 <ArticleDetailsPageHeader id={id} />
                 <ArticleDetails articleId={id} />
                 <Text size={TextSize.M} title={t('Рекомендуем')} className={cls.commentTitle} />
-                <ArticleList target="_blank" articles={recommendations} isLoading={recommendationsIsLoading} className={cls.recommendations} />
+                <ArticleList
+                    target="_blank"
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    className={cls.recommendations}
+                />
                 <Text size={TextSize.M} title={t('Комментарии')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={isLoading} />

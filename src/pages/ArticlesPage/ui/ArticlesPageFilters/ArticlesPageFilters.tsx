@@ -4,24 +4,22 @@ import { memo, useCallback, useMemo } from 'react';
 import { ArticleView, ArticleViewSwitcher } from 'entities/Articles';
 import { useSelector } from 'react-redux';
 import { getArticlesPageView } from 'pages/ArticleDetailsPage/model/selectors/articlesPageSelectors';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Select } from 'shared/ui/Select/Select';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { ArticlesSortSelector } from 'entities/Articles/ui/ArticlesSortSelector/ArticlesSortSelector';
+import { ArticleSortField, ArticleType } from 'entities/Articles/model/types/articleTypes';
+import { SortOrder } from 'shared/types';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from 'shared/Tabs/Tabs';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
-    getArticlesPageSortField, getArticlesPageType,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { ArticleSortField, ArticleType } from 'entities/Articles/model/types/articleTypes';
-import { SortOrder } from 'shared/types';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from 'shared/Tabs/Tabs';
+    getArticlesPageSortField,
+    getArticlesPageType,
+} from '../../model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {

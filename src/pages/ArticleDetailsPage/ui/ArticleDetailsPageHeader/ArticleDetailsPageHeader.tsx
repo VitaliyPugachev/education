@@ -6,8 +6,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/user';
-import { getArticleDetailsData } from 'entities/Articles/model/selectors/getArticleDetailsData';
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
+import { getCanEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
@@ -27,7 +26,7 @@ export const ArticleDetailsPageHeader = memo(({ className, id }: ArticleDetailsP
 
     const goToEditPage = useCallback(() => {
         navigate(`${RoutePath.article_details}${id}/edit`);
-    }, [navigate]);
+    }, [id, navigate]);
 
     return (
         <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>

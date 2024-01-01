@@ -4,10 +4,10 @@ import {
 } from '@reduxjs/toolkit';
 import { CustomComment } from 'entities/Comment';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsCommentSchema } from '../../model/types/ArticleDetailsCommentSchema';
 import {
     fetchCommentByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentByArticleId';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentByArticleId';
 
 const commentsAdapter = createEntityAdapter<CustomComment>({
     selectId: (comment) => comment.id,
