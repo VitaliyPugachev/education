@@ -668,12 +668,12 @@
       "id": "1",
       "name": "Evgeniy",
       "lastname": "Petrov",
-      "age": "33",
+      "age": 22,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
       "username": "admin",
-      "avatar": "https://cojo.ru/wp-content/uploads/2022/12/pepe-retroveiv-3.webp"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaPIYD24fi0ylk7UUdu7nAOlkztydHp8mIRELxecPUvA&s"
     },
     {
       "id": "2",

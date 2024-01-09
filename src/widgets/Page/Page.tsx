@@ -1,15 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    memo, MutableRefObject, ReactNode, UIEventHandler, useEffect, useRef,
+    memo, MutableRefObject, ReactNode, useEffect, useRef,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { log } from 'util';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getScrollSavePath, scrollSaveActions } from 'feautures/ScrollSave';
+import { scrollSaveActions } from 'feautures/ScrollSave';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getScrollSave } from 'feautures/ScrollSave/selectors/scrollSaveSelectors';
-import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 
