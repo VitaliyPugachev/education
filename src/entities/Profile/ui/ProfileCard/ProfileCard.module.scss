@@ -3,26 +3,9 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-  display: flex;
-}
-
-.editBtn {
-  margin-left: auto;
-}
-
 .loading,
 .error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 300px;
-}
-
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .editing {

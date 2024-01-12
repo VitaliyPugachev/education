@@ -13,6 +13,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack } from 'shared/ui/Stack';
 import { articleDetailsReducers } from '../../model/slices/articleDetailsSlice';
 import {
     fetchArticleById,
@@ -90,27 +91,27 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleDetailsProp
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" className={cls.avatarWrapper}>
                     <Avatar
                         src={article?.img}
                         size={200}
                         className={cls.avatar}
                     />
-                </div>
+                </HStack>
                 <Text
                     className={cls.title}
                     title={article?.title}
                     text={article?.subtitle}
                     size={TextSize.M}
                 />
-                <div className={cls.articleInfo}>
+                <HStack gap="8" className={cls.articleInfo}>
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <Text text={article?.views.toString()} />
-                </div>
-                <div className={cls.articleInfo}>
+                </HStack>
+                <HStack gap="8" className={cls.articleInfo}>
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <Text text={article?.createdAt} />
-                </div>
+                </HStack>
                 {article?.blocks.map(renderBlock)}
             </>
         );

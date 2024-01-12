@@ -95,6 +95,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@react-buddy/ide-toolbox": "^2.4.0",
     "@reduxjs/toolkit": "^1.8.0",
     "cors": "^2.8.5",
