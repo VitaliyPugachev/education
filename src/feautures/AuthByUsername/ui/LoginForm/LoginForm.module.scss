@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 400px;
+    color: var(--primary-color);
 }
 
 .input {
     margin-top: 10px;
+    color: var(--primary-color);
 }
 
 .loginBtn {

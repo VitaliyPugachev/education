@@ -26,15 +26,23 @@
 .disabled {
     opacity: 0.7;
 }
-
-.optionsBottom {
-
-}
-
-.optionsTop {
-    bottom: 100%;
-}
-
 .label {
     margin-right: 10px;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
 }

@@ -39,7 +39,7 @@ export const Modal = ({
         }
     }, [onClose]);
 
-    const onContnetClick = (e: React.MouseEvent) => {
+    const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
 
@@ -69,14 +69,14 @@ export const Modal = ({
     }
 
     return (
-        <Portal>
+        <div>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContnetClick}>
+                    <div className={cls.content} onClick={onContentClick}>
                         {children}
                     </div>
                 </div>
             </div>
-        </Portal>
+        </div>
     );
 };

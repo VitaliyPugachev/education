@@ -43,7 +43,7 @@ export const SelectCountry = memo((props: SelectCountryProps) => {
             value={value}
             defaultValue={t('Страна')}
             onChange={onChangeHandler}
-            direction={'top'}
+            direction={'top right'}
         />
     )
 

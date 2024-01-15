@@ -1,16 +1,12 @@
 import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './ListBox.module.scss';
-import {useTranslation} from 'react-i18next';
-import {Fragment, memo, ReactNode} from 'react';
+import {ReactNode} from 'react';
 import Check from '../../assets/icons/check.svg';
 import {Icon} from "shared/ui/Icon/Icon";
 import {HStack} from "shared/ui/Stack";
-import { useState } from 'react'
-import { Listbox as HListBox } from '@headlessui/react'
-import SVG from "*.svg";
+import {Listbox as HListBox} from '@headlessui/react'
 import {Button} from "shared/ui/Button/Button";
-
-export type DropdownDirection = 'top' | 'bottom';
+import {DropdownDirection} from "shared/types/ui";
 
 
 interface ListBoxItem {
@@ -32,11 +28,13 @@ interface ListBoxProps {
 
 
 export function ListBox(props: ListBoxProps) {
-    const {className, items, value, defaultValue, onChange, readonly, direction = 'bottom', label} = props;
+    const {className, items, value, defaultValue, onChange, readonly, direction = 'bottom left', label} = props;
 
     const mapDirectionClass: Record<DropdownDirection, string> = {
-        bottom: cls.optionsBottom,
-        top: cls.optionsTop,
+        'bottom left': cls.optionsBottomLeft,
+        'bottom right': cls.optionsBottomRight,
+        'top right': cls.optionsTopRight,
+        'top left': cls.optionsTopLeft,
     }
 
     return (
