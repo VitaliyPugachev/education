@@ -3,15 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getProfileData, getProfileReadonly, profileActions } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
-import {
-    updateProfileData,
-} from 'entities/Profile/model/services/updateProfileData/updateProfileData';
-import { getUserAuthData } from 'entities/user';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import {getProfileReadonly} from "feautures/editableProfileCard/model/selector/getProfileReadonly/getProfileReadonly";
+import {getProfileData} from "feautures/editableProfileCard/model/selector/getProfileData/getProfileData";
+import {getUserAuthData} from "entities/user";
+import {profileActions} from "feautures/editableProfileCard/model/slice/profileSlice";
+import {updateProfileData} from "feautures/editableProfileCard/model/services/updateProfileData/updateProfileData";
 
 interface ProfilePageHeaderProps {
     className?: string;

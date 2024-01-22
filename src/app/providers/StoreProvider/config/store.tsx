@@ -8,6 +8,7 @@ import {
 } from '@reduxjs/toolkit';
 import { scrollSaveReducer } from 'feautures/ScrollSave';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
+import {rtkApi} from "shared/api/rktQueryApi";
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -18,6 +19,7 @@ export function createReduxStore(
         ...asyncReducers,
         user: userReducer,
         scrollSave: scrollSaveReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -34,7 +36,7 @@ export function createReduxStore(
             thunk: {
                 extraArgument: extraArg,
             },
-        }),
+        }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore

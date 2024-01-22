@@ -10,7 +10,7 @@ interface SelectCountryProps {
     value?: Country;
     onChange?: (country: Country) => void;
     readonly?: boolean;
-
+    label?: string;
 }
 
 export const SelectCountry = memo((props: SelectCountryProps) => {
@@ -19,6 +19,7 @@ export const SelectCountry = memo((props: SelectCountryProps) => {
         value,
         onChange,
         readonly,
+        label
     } = props;
 
     const { t } = useTranslation();
@@ -36,7 +37,7 @@ export const SelectCountry = memo((props: SelectCountryProps) => {
 
     return (
         <ListBox
-            label={t('Страна')}
+            label={label || 'Country'}
             readonly={readonly}
             className={className}
             items={options}

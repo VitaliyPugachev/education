@@ -126,7 +126,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         onChange={onChangeCountry}
                         readonly={readonly}
                         value={formData?.country}
-
+                        label={t('Страна')}
                     />
                     <CurrencySelect
                         onChange={onChangeCurrency}

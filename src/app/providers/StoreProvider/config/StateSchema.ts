@@ -3,18 +3,20 @@ import { LoginSchema } from 'feautures/AuthByUsername/index';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Articles';
 import { ArticleDetailsCommentSchema, ArticleDetailsRecommendSchema } from 'pages/ArticleDetailsPage';
 import { addCommentFormSchema } from 'feautures/addCommentForm/index';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'feautures/ScrollSave';
+import {rtkApi} from "shared/api/rktQueryApi";
+import {ProfileSchema} from "feautures/editableProfileCard/model/type/editableProfileCardTypes";
 
 export interface StateSchema {
     scrollSave: ScrollSaveSchema;
     user: UserSchema;
     login?: LoginSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComment?: ArticleDetailsCommentSchema;

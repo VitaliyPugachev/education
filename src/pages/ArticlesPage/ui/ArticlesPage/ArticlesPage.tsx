@@ -20,6 +20,9 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesPage.module.scss';
+import {ArticleInfiniteScroll} from "pages/ArticlesPage/ui/ArticleInfiniteScroll/ArticleInfiniteScroll";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 interface ArticlesPageProps {
     className?: string;
@@ -31,19 +34,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
-    const { t } = useTranslation();
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const error = useSelector(getArticlesPageError);
-    const view = useSelector(getArticlesPageView);
-    const page = useSelector(getArticlesPagePage);
-    const hasMore = useSelector(getArticlesPageHasMore);
-    const inited = useSelector(getArticlesPageInited);
-    const [searchParams] = useSearchParams();
-
-    useEffect(() => {
-        dispatch(initArticlesPage(searchParams));
-    }, [dispatch, inited, searchParams]);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -56,11 +46,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >
                 <ArticlesPageFilters />
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                />
+                <ArticleInfiniteScroll/>
             </Page>
         </DynamicModuleLoader>
     );

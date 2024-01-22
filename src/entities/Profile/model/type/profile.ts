@@ -1,5 +1,5 @@
-import { Currency } from 'entities/Currency/model/types/currency';
-import { Country } from 'entities/Country/model/types/country';
+import {Currency} from 'entities/Currency/model/types/currency';
+import {Country} from 'entities/Country/model/types/country';
 
 export enum ValidateProfileError {
     INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
@@ -21,11 +21,3 @@ export interface Profile {
     avatar?: string
 }
 
-export interface ProfileSchema {
-    data?: Profile,
-    form?: Profile,
-    isLoading: boolean,
-    error?: string,
-    readonly: boolean,
-    validateError?: ValidateProfileError[]
-}
