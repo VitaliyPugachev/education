@@ -1,23 +1,51 @@
-import React from 'react';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import {componentRender} from "shared/lib/tests/componentRender/componentRender";
+import {EditableProfileCard} from "feautures/editableProfileCard/ui/EditableProfileCard/EditableProfileCard";
+import {Country} from "entities/Country";
+import {Currency} from "entities/Currency";
+import {profileReducer} from "feautures/editableProfileCard/model/slice/profileSlice";
+import React, {useEffect} from "react";
+import {userEvent} from "@testing-library/user-event";
+import {screen} from "@testing-library/react";
 
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import {Theme} from 'app/providers/ThemeProvider';
-import {EditableProfileCard} from './EditableProfileCard';
 
-export default {
-    title: 'shared/EditableProfileCard',
-    component: EditableProfileCard,
-    argTypes: {
-        backgroundColor: {control: 'color'},
+const data = {
+    id: '1',
+    username: 'admin',
+    name: 'Name',
+    lastname: 'LastName',
+    country: Country.Russia,
+    city: 'Moscow',
+    age: 22,
+    currency: Currency.RUB,
+    avatar: ''
+}
+
+const options = {
+    initialState: {
+        profile: {
+            data: data,
+            readonly: true,
+            form: data,
+            isLoading: false,
+            error: '',
+        },
+        user: {
+            authData: {
+                id: '1',
+                username: 'admin'
+            }
+        }
     },
-} as ComponentMeta<typeof EditableProfileCard>;
+    asyncReducers: {
+        profile: profileReducer
+    }
+}
 
-const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+describe('EditableProfileCard', () => {
 
-export const Light = Template.bind({});
-Light.args = {};
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+    test('on Edit button click Cancel button must be in the document', async () => {
+        componentRender(<EditableProfileCard id={'1'} />, options);
+        await userEvent.click(screen.getByTestId('EditableProfileCard.EditButton'));
+        expect(screen.getByTestId('EditableProfileCard.CancelButton')).toBeInTheDocument();
+    });
+})

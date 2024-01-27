@@ -658,14 +658,18 @@
       "id": "1",
       "username": "admin",
       "password": "1234",
-      "role": "ADMIN",
+      "role": [
+        "ADMIN"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaPIYD24fi0ylk7UUdu7nAOlkztydHp8mIRELxecPUvA&s"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "role": [
+        "USER"
+      ],
       "avatar": "https://thumbs.dreamstime.com/b/vector-illustration-avatar-dummy-logo-collection-image-icon-stock-isolated-object-set-symbol-web-137160339.jpg"
     }
   ],
@@ -689,7 +693,7 @@
       "currency": "EUR",
       "country": "England",
       "city": "London",
-      "username": "user1",
+      "username": "user",
       "avatar": "https://thumbs.dreamstime.com/b/vector-illustration-avatar-dummy-logo-collection-image-icon-stock-isolated-object-set-symbol-web-137160339.jpg"
     }
   ]

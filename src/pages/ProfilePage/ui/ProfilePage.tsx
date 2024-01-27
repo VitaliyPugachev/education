@@ -9,6 +9,10 @@ import {EditableProfileCard} from "feautures/editableProfileCard/ui/EditableProf
 import {profileReducer} from "feautures/editableProfileCard/model/slice/profileSlice";
 import {VStack} from "shared/ui/Stack";
 import {useParams} from "react-router-dom";
+import cls from "entities/Profile/ui/ProfileCard/ProfileCard.module.scss";
+import {Loader} from "shared/ui/Loader/Loader";
+import {useSelector} from "react-redux";
+import {getProfileLoading} from "feautures/editableProfileCard/model/selector/getProfileLoading/getProfileLoading";
 
 interface ProfilePageProps {
     className?: string;
@@ -20,13 +24,20 @@ const reducers: ReducersList = {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { id } = useParams<{id: string}>();
+    const isLoading = useSelector(getProfileLoading);
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+                <Loader />
+            </div>
+        );
+    }
+
     return (
         <Page className={classNames('', {}, [className])}>
             <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-                <VStack gap={'8'}>
-                    <ProfilePageHeader />
-                    <EditableProfileCard id={id}/>
-                </VStack>
+                <EditableProfileCard id={id}/>
             </DynamicModuleLoader>
         </Page>
 
