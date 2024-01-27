@@ -12,7 +12,6 @@ import cls from './Navbar.module.scss';
 import {Dropdown} from "shared/ui/Dropdown/Dropdown";
 import {Avatar} from "shared/ui/Avatar/Avatar";
 import {isUserManager} from "entities/user/model/selectors/roleSelectors";
-import {StateSchema} from "app/providers/StoreProvider";
 
 interface NavbarProps {
     className?: string;
@@ -38,6 +37,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, [dispatch]);
 
     const isAdminPanelAvailable = isAdmin || isManager;
+
+    console.log(authData)
 
     if (authData) {
         return (
