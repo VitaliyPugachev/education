@@ -36,6 +36,7 @@ export const ArticleDetailsPageHeader = memo(({ className, id }: ArticleDetailsP
             {canEdit && (
                 <Button
                     onClick={goToEditPage}
+                    data-testid={'EditableProfileCard.EditButton'}
                 >
                     {t('Редактировать')}
                 </Button>

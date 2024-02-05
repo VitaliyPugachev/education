@@ -47,14 +47,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     const { t } = useTranslation('profile');
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
-                <Loader />
-            </div>
-        );
-    }
-
     if (error) {
         return (
             <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
@@ -86,6 +78,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         className={cls.input}
                         onChange={onChangeUsername}
                         readonly={readonly}
+                        data-testid={'ProfileCard.Username'}
                     />
                     <Input
                         value={formData?.name}

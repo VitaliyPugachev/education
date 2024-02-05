@@ -2,10 +2,11 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import { Article, ArticleView } from 'entities/Articles';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
-import { ArticleSortField, ArticleType } from 'entities/Articles/model/types/articleTypes';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../../../ArticlesPage';
+import {ArticleSortField, ArticleType} from "entities/Articles/model/consts/consts";
+import {CustomComment} from "entities/Comment";
 
 const initialState: ArticlesPageSchema = {
     isLoading: false,
@@ -24,7 +25,7 @@ const initialState: ArticlesPageSchema = {
 };
 
 const articlesAdapter = createEntityAdapter<Article>({
-    selectId: (comment) => comment.id,
+    selectId: (comment: CustomComment) => comment.id ,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(

@@ -14,6 +14,12 @@ export const ArticleRecommendationsList = memo(({className}: ArticleRecommendati
     const {t} = useTranslation();
     const {data, isLoading} = useGetArticleRecommendationsList(3);
 
+    if (!data) {
+        return (
+            <Text text={'Произошла ошибка'}/>
+        )
+    }
+
     return (
         <VStack gap={'8'} className={classNames('', {}, [className])}>
             <Text size={TextSize.M} title={t('Рекомендуем')} />

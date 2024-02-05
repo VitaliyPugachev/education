@@ -1,11 +1,13 @@
-import { RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/MainPage';
-import { AboutPage } from 'pages/AboutPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlesPageAsync } from 'pages/ArticlesPage';
-import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage';
-import { ArticleEditPage } from 'pages/ArticleEditPage';
+import {RouteProps} from 'react-router-dom';
+import {MainPage} from 'pages/MainPage';
+import {AboutPage} from 'pages/AboutPage';
+import {NotFoundPage} from 'pages/NotFoundPage';
+import {ProfilePage} from 'pages/ProfilePage';
+import {ArticlesPageAsync} from 'pages/ArticlesPage';
+import {ArticleDetailsPageAsync} from 'pages/ArticleDetailsPage';
+import {ArticleEditPage} from 'pages/ArticleEditPage';
+import {AdminPanel} from "pages/AdminPannel";
+import {UserRole} from "entities/user/model/types/user";
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -15,12 +17,15 @@ export enum AppRoutes {
     ARTICLE_DETAILS = 'article_details',
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
+    ADMIN_PANEL = 'admin_panel',
+
 
     NOT_FOUND = 'not_found',
 }
 
 type AppRouteProps = RouteProps & {
     authOnly?: boolean
+    userRoles?: UserRole[]
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -31,6 +36,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLE_DETAILS]: '/article/',
     [AppRoutes.ARTICLE_CREATE]: '/article/new',
     [AppRoutes.ARTICLE_EDIT]: '/article/:id/edit',
+    [AppRoutes.ADMIN_PANEL]: '/admin',
     // последний
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -70,5 +76,11 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         path: `${RoutePath.article_create}`,
         element: <ArticleEditPage />,
         authOnly: true,
+    },
+    [AppRoutes.ADMIN_PANEL]: {
+        path: `${RoutePath.admin_panel}`,
+        element: <AdminPanel />,
+        authOnly: true,
+        userRoles: [UserRole.MANAGER, UserRole.ADMIN]
     },
 };

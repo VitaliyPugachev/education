@@ -15,7 +15,7 @@ interface DynamicModuleLoaderProps {
     children?: ReactNode;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props: DynamicModuleLoaderProps) => {
+export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     const {
         children,
         reducers,

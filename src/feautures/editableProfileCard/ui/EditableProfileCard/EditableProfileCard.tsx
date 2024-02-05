@@ -1,11 +1,7 @@
-import {classNames} from 'shared/lib/classNames/classNames';
-import cls from './EditableProfileCard.module.scss';
 import {useTranslation} from 'react-i18next';
 import {memo, useCallback, useEffect} from 'react';
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
-import {ValidateProfileError} from "entities/Profile/model/type/profile";
 import {Currency} from "entities/Currency";
 import {Country} from "entities/Country";
 import {VStack} from "shared/ui/Stack";
@@ -21,6 +17,10 @@ import {
 import {profileActions} from "feautures/editableProfileCard/model/slice/profileSlice";
 import {fetchProfileData} from "feautures/editableProfileCard/model/services/fetchProfileData/fetchProfileData";
 import {ProfileCard} from "entities/Profile";
+import {classNames} from "shared/lib/classNames/classNames";
+import cls from "entities/Profile/ui/ProfileCard/ProfileCard.module.scss";
+import {Loader} from "shared/ui/Loader/Loader";
+import {ValidateProfileError} from "feautures/editableProfileCard/model/consts/consts";
 
 interface EditableProfileCardProps {
     className?: string;
@@ -93,28 +93,32 @@ export const EditableProfileCard = memo(({className, id}: EditableProfileCardPro
     }
 
     return (
-        <VStack gap="16" max>
-            {validateErrors?.length && validateErrors.map((error: ValidateProfileError) => (
-                <Text
-                    theme={TextTheme.ERROR}
-                    text={validateErrorsTranslate[error]}
-                    key={error}
+        <VStack gap={'8'}>
+            <ProfilePageHeader />
+            <VStack gap="16" max>
+                {validateErrors?.length && validateErrors.map((error: ValidateProfileError) => (
+                    <Text
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslate[error]}
+                        key={error}
+                        data-testid={'EditableProfileCard.Error'}
+                    />
+                ))}
+                <ProfileCard
+                    formData={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeLastname={onChangeLastname}
+                    onChangeName={onChangeName}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    readonly={readonly}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeUsername={onChangeUsername}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
-            ))}
-            <ProfileCard
-                formData={formData}
-                isLoading={isLoading}
-                error={error}
-                onChangeLastname={onChangeLastname}
-                onChangeName={onChangeName}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                readonly={readonly}
-                onChangeAvatar={onChangeAvatar}
-                onChangeUsername={onChangeUsername}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
+            </VStack>
         </VStack>
     );
 });

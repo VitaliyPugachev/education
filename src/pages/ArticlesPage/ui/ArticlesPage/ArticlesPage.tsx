@@ -1,28 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useEffect } from 'react';
-import { ArticleList } from 'entities/Articles';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { getArticlesPageView } from 'pages/ArticleDetailsPage/model/selectors/articlesPageSelectors';
-import { Page } from 'widgets/Page/Page';
-import { useSearchParams } from 'react-router-dom';
-import {
-    getArticlesPageError,
-    getArticlesPageHasMore,
-    getArticlesPageInited,
-    getArticlesPageIsLoading,
-    getArticlesPagePage,
-} from '../../model/selectors/articlesPageSelectors';
-import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
+import {classNames} from 'shared/lib/classNames/classNames';
+import {memo, useCallback} from 'react';
+import {DynamicModuleLoader, ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {Page} from 'widgets/Page/Page';
+import {articlesPageReducer} from '../../model/slices/articlesPageSlice';
+import {fetchNextArticlesPage} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import {ArticlesPageFilters} from '../../ui/ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesPage.module.scss';
 import {ArticleInfiniteScroll} from "pages/ArticlesPage/ui/ArticleInfiniteScroll/ArticleInfiniteScroll";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 interface ArticlesPageProps {
     className?: string;
