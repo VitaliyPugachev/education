@@ -5,8 +5,8 @@ import ListIcon from 'shared/assets/icons/list-solid.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import TilesIcon from 'shared/assets/icons/Articles.svg';
-import { ArticleView } from '../../model/types/articleTypes';
 import cls from './ArticleViewSwitcher.module.scss';
+import {ArticleView} from "entities/Articles/model/consts/consts";
 
 interface ArticleViewSwitcherProps {
     className?: string;

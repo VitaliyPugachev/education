@@ -3,7 +3,7 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import {Profile} from "entities/Profile";
 import {ProfileSchema} from "feautures/editableProfileCard/model/type/editableProfileCardTypes";
-import {ValidateProfileError} from "entities/Profile/model/type/profile";
+import {ValidateProfileError} from "feautures/editableProfileCard/model/consts/consts";
 
 const initialState: ProfileSchema = {
     data: undefined,

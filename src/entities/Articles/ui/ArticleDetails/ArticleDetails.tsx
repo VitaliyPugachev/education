@@ -23,7 +23,7 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetailsData';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/articleTypes';
+import { ArticleBlock} from '../../model/types/articleTypes';
 import {
     ArticleCodeBlockComponent,
 } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -34,6 +34,7 @@ import {
     ArticleTextBlockComponent,
 } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleDetails.module.scss';
+import {ArticleBlockType} from "entities/Articles/model/consts/consts";
 
 interface ArticleDetailsProps {
     className?: string;

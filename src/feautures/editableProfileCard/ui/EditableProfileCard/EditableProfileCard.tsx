@@ -2,7 +2,6 @@ import {useTranslation} from 'react-i18next';
 import {memo, useCallback, useEffect} from 'react';
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useSelector} from "react-redux";
-import {ValidateProfileError} from "entities/Profile/model/type/profile";
 import {Currency} from "entities/Currency";
 import {Country} from "entities/Country";
 import {VStack} from "shared/ui/Stack";
@@ -21,6 +20,7 @@ import {ProfileCard} from "entities/Profile";
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from "entities/Profile/ui/ProfileCard/ProfileCard.module.scss";
 import {Loader} from "shared/ui/Loader/Loader";
+import {ValidateProfileError} from "feautures/editableProfileCard/model/consts/consts";
 
 interface EditableProfileCardProps {
     className?: string;

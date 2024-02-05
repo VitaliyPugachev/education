@@ -27,3 +27,9 @@ type DeepPartial<T> = T extends object ? {
 type OptionalRecord<K extends keyof any, T> = {
     [P in K]? : T
 };
+
+declare module "react-dom/client" {
+    // typing module default export as `any` will allow you to access its members without compiler warning
+    var createRoot: any;
+    export {createRoot};
+}
