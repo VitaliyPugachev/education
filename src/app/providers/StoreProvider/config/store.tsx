@@ -4,6 +4,7 @@ import { $api } from 'shared/api/api';
 import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import {
+    // @ts-ignore
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { scrollSaveReducer } from 'feautures/ScrollSave';

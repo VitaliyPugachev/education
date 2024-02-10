@@ -1,6 +1,7 @@
 import type { UserSchema } from 'entities/user';
 import { LoginSchema } from 'feautures/AuthByUsername/index';
 import {
+    // @ts-ignore
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';

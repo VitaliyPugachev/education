@@ -9,9 +9,15 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
-import {Dropdown} from "shared/ui/Dropdown/Dropdown";
+import {Dropdown} from "shared/ui/Popups/ui/Dropdown/Dropdown";
 import {Avatar} from "shared/ui/Avatar/Avatar";
 import {isUserManager} from "entities/user/model/selectors/roleSelectors";
+import {HStack} from "shared/ui/Stack";
+import {Icon} from "shared/ui/Icon/Icon";
+import BellIcon from 'shared/assets/icons/bell-regular.svg';
+import SVG from "*.svg";
+import {Popover} from "shared/ui/Popups";
+import {NotificationList} from "entities/Notification";
 
 interface NavbarProps {
     className?: string;
@@ -51,25 +57,35 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Dropdown
-                    direction={'bottom left'}
-                    items={[
-                        ...(isAdminPanelAvailable? [{
-                            content: t('Админка'),
-                            href: RoutePath.admin_panel
-                        }] : []),
-                        {
-                            content: t('Профиль'),
-                            href: RoutePath.profile + authData.id
-                        },
-                        {
-                            content: t('Выйти'),
-                            onClick: onLogout
-                        }
-                    ]}
-                    trigger={<Avatar src={authData.avatar} size={30} />}
-                    className={cls.dropdown}
-                />
+                <HStack gap={'8'} className={cls.actions} align={'center'}>
+                    <Popover
+                        direction={'bottom left'}
+                        trigger={<Button className={cls.btn}>
+                            <Icon Svg={BellIcon} className={cls.bell} inverted={true}/>
+                            </Button>}
+                    >
+                        <NotificationList className={cls.notifications}/>
+                    </Popover>
+                    <Dropdown
+                        direction={'bottom left'}
+                        items={[
+                            ...(isAdminPanelAvailable? [{
+                                content: t('Админка'),
+                                href: RoutePath.admin_panel
+                            }] : []),
+                            {
+                                content: t('Профиль'),
+                                href: RoutePath.profile + authData.id
+                            },
+                            {
+                                content: t('Выйти'),
+                                onClick: onLogout
+                            }
+                        ]}
+                        trigger={<Avatar src={authData.avatar} size={30} />}
+                        className={cls.dropdown}
+                    />
+                </HStack>
             </div>
         );
     }

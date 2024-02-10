@@ -1,0 +1,22 @@
+.menu {
+    background: var(--card-bg);
+    position: absolute;
+    z-index: 1000;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 5px;
+    border: none;
+    width: 100%;
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
