@@ -1,18 +1,18 @@
 import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './NotificationList.module.scss';
 import {useTranslation} from 'react-i18next';
-import {memo} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {useNotifications} from "entities/Notification/api/notificationApi";
 import {VStack} from "shared/ui/Stack";
 import {NotificationItem} from "entities/Notification/ui/NotificationItem/NotificationItem";
 import {Skeleton} from "shared/ui/Skeleton/Skeleton";
+import {Drawer} from "shared/ui/Drawer/Drawer";
 
 interface NotificationListProps {
     className?: string;
 }
 
 export const NotificationList = memo(({className}: NotificationListProps) => {
-    const {t} = useTranslation();
     const {data, isLoading} = useNotifications(null, {
         pollingInterval: 10000
     });
@@ -30,6 +30,8 @@ export const NotificationList = memo(({className}: NotificationListProps) => {
             </VStack>
         )
     }
+
+
 
     return (
         <VStack

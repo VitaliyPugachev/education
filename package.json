@@ -83,6 +83,7 @@
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
     "npm": "^10.4.0",
+    "react-device-detect": "^2.2.3",
     "react-refresh": "^0.14.0",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",

@@ -13,11 +13,7 @@ import {Dropdown} from "shared/ui/Popups/ui/Dropdown/Dropdown";
 import {Avatar} from "shared/ui/Avatar/Avatar";
 import {isUserManager} from "entities/user/model/selectors/roleSelectors";
 import {HStack} from "shared/ui/Stack";
-import {Icon} from "shared/ui/Icon/Icon";
-import BellIcon from 'shared/assets/icons/bell-regular.svg';
-import SVG from "*.svg";
-import {Popover} from "shared/ui/Popups";
-import {NotificationList} from "entities/Notification";
+import {NotificationButton} from "entities/Notification";
 
 interface NavbarProps {
     className?: string;
@@ -44,7 +40,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     const isAdminPanelAvailable = isAdmin || isManager;
 
-    console.log(authData)
 
     if (authData) {
         return (
@@ -58,14 +53,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap={'8'} className={cls.actions} align={'center'}>
-                    <Popover
-                        direction={'bottom left'}
-                        trigger={<Button className={cls.btn}>
-                            <Icon Svg={BellIcon} className={cls.bell} inverted={true}/>
-                            </Button>}
-                    >
-                        <NotificationList className={cls.notifications}/>
-                    </Popover>
+                    <NotificationButton/>
                     <Dropdown
                         direction={'bottom left'}
                         items={[
