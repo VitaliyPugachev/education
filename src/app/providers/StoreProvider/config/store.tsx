@@ -1,15 +1,15 @@
-import { userReducer } from 'entities/user';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { $api } from 'shared/api/api';
+import { userReducer } from '@/entities/user';
+import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { $api } from '@/shared/api/api';
 import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import {
     // @ts-ignore
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { scrollSaveReducer } from 'feautures/ScrollSave';
+import { scrollSaveReducer } from '@/features/ScrollSave';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
-import {rtkApi} from "shared/api/rktQueryApi";
+import {rtkApi} from "@/shared/api/rktQueryApi";
 
 export function createReduxStore(
     initialState?: StateSchema,

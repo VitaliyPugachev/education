@@ -1,7 +1,7 @@
 import React, {MutableRefObject, useCallback, useEffect, useRef, useState} from "react";
-import {Mods} from "shared/lib/classNames/classNames";
-import cls from "shared/ui/Modal/Modal.module.scss";
-import {useTheme} from "app/providers/ThemeProvider";
+import {Mods} from "@/shared/lib/classNames/classNames";
+import cls from "@/shared/ui/Modal/Modal.module.scss";
+import {useTheme} from "@/app/providers/ThemeProvider";
 
 interface UseModalProps {
     onClose?: () => void;

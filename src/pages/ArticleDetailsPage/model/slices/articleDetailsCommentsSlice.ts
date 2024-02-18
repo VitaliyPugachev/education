@@ -2,8 +2,8 @@ import {
     createEntityAdapter,
     createSlice, PayloadAction,
 } from '@reduxjs/toolkit';
-import { CustomComment } from 'entities/Comment';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { CustomComment } from '@/entities/Comment';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleDetailsCommentSchema } from '../../model/types/ArticleDetailsCommentSchema';
 import {
     fetchCommentByArticleId,

@@ -1,18 +1,18 @@
-import {classNames} from 'shared/lib/classNames/classNames';
+import {classNames} from '@/shared/lib/classNames/classNames';
 import {useTranslation} from 'react-i18next';
 import {memo} from 'react';
-import {ArticleDetails} from 'entities/Articles';
+import {ArticleDetails} from '@/entities/Articles';
 import {useParams} from 'react-router-dom';
-import {Text} from 'shared/ui/Text/Text';
-import {DynamicModuleLoader, ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import {Page} from 'widgets/Page/Page';
+import {Text} from '@/shared/ui/Text/Text';
+import {DynamicModuleLoader, ReducersList} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {Page} from '@/widgets/Page/Page';
 import {articleDetailsCommentsReducer,} from '../../model/slices/articleDetailsCommentsSlice';
 import {articleDetailsPageRecommendReducer,} from '../../model/slices/articleDetailesRecommendSlice';
 import {ArticleDetailsPageHeader} from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
-import {VStack} from "shared/ui/Stack";
-import {ArticleRecommendationsList} from "feautures/ArticleRecommendationList";
-import {ArticleDetailsComments} from "pages/ArticleDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments";
+import {VStack} from "@/shared/ui/Stack";
+import {ArticleRecommendationsList} from "@/features/ArticleRecommendationList";
+import {ArticleDetailsComments} from "@/pages/ArticleDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments";
 
 interface ArticleDetailsPageProps {
     className?: string;

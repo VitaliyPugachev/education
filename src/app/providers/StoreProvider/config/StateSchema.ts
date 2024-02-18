@@ -1,17 +1,17 @@
-import type { UserSchema } from 'entities/user';
-import { LoginSchema } from 'feautures/AuthByUsername/index';
+import type { UserSchema } from '@/entities/user';
+import { LoginSchema } from 'features/AuthByUsername/index';
 import {
     // @ts-ignore
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Articles';
-import { ArticleDetailsCommentSchema, ArticleDetailsRecommendSchema } from 'pages/ArticleDetailsPage';
-import { addCommentFormSchema } from 'feautures/addCommentForm/index';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ScrollSaveSchema } from 'feautures/ScrollSave';
-import {rtkApi} from "shared/api/rktQueryApi";
-import {ProfileSchema} from "feautures/editableProfileCard/model/type/editableProfileCardTypes";
+import { ArticleDetailsSchema } from '@/entities/Articles';
+import { ArticleDetailsCommentSchema, ArticleDetailsRecommendSchema } from '@/pages/ArticleDetailsPage';
+import { addCommentFormSchema } from 'features/addCommentForm/index';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ScrollSaveSchema } from '@/features/ScrollSave';
+import {rtkApi} from "@/shared/api/rktQueryApi";
+import {ProfileSchema} from "features/editableProfileCard/model/type/editableProfileCardTypes";
 
 export interface StateSchema {
     scrollSave: ScrollSaveSchema;

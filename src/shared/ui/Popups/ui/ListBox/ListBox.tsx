@@ -1,14 +1,14 @@
-import {classNames} from 'shared/lib/classNames/classNames';
+import {classNames} from '@/shared/lib/classNames/classNames';
 import cls from './ListBox.module.scss';
 import {ReactNode} from 'react';
 import Check from '../../../../assets/icons/check.svg';
-import {Icon} from "shared/ui/Icon/Icon";
-import {HStack} from "shared/ui/Stack";
+import {Icon} from "@/shared/ui/Icon/Icon";
+import {HStack} from "@/shared/ui/Stack";
 import {Listbox as HListBox} from '@headlessui/react'
-import {Button} from "shared/ui/Button/Button";
-import {DropdownDirection} from "shared/types/ui";
-import popupCls from "shared/ui/Popups/styles/popup.module.scss";
-import {mapDirectionClass} from "shared/ui/Popups/styles/consts";
+import {Button} from "@/shared/ui/Button/Button";
+import {DropdownDirection} from "@/shared/types/ui";
+import popupCls from "@/shared/ui/Popups/styles/popup.module.scss";
+import {mapDirectionClass} from "@/shared/ui/Popups/styles/consts";
 
 
 interface ListBoxItem {

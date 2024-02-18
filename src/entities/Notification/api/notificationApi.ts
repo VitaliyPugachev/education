@@ -1,5 +1,5 @@
-import {rtkApi} from "shared/api/rktQueryApi";
-import {Article} from "entities/Articles";
+import {rtkApi} from "@/shared/api/rktQueryApi";
+import {Article} from "@/entities/Articles";
 import {Notification} from "../model/types/notification";
 
 const notificationApi = rtkApi.injectEndpoints({

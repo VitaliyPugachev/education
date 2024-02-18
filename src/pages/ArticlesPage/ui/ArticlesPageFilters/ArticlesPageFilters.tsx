@@ -1,16 +1,16 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
-import { ArticleView, ArticleViewSwitcher } from 'entities/Articles';
+import { ArticleView, ArticleViewSwitcher } from '@/entities/Articles';
 import { useSelector } from 'react-redux';
-import { getArticlesPageView } from 'pages/ArticleDetailsPage/model/selectors/articlesPageSelectors';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { ArticlesSortSelector } from 'entities/Articles/ui/ArticlesSortSelector/ArticlesSortSelector';
-import { SortOrder } from 'shared/types';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from 'shared/Tabs/Tabs';
+import { getArticlesPageView } from '@/pages/ArticleDetailsPage/model/selectors/articlesPageSelectors';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { ArticlesSortSelector } from '@/entities/Articles/ui/ArticlesSortSelector/ArticlesSortSelector';
+import { SortOrder } from '@/shared/types';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from '@/shared/Tabs/Tabs';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
     getArticlesPageOrder,
@@ -20,7 +20,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilters.module.scss';
-import {ArticleSortField, ArticleType} from "entities/Articles/model/consts/consts";
+import {ArticleSortField, ArticleType} from "@/entities/Articles/model/consts/consts";
 
 interface ArticlesPageFiltersProps {
     className?: string;
