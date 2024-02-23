@@ -7,20 +7,17 @@ import {Country} from "@/entities/Country";
 import {VStack} from "@/shared/ui/Stack";
 import {ProfilePageHeader} from "@/pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader";
 import {Text, TextTheme} from "@/shared/ui/Text/Text";
-import {getProfileForm} from "features/editableProfileCard/model/selector/getProfileForm/getProfileForm";
-import {getProfileLoading} from "features/editableProfileCard/model/selector/getProfileLoading/getProfileLoading";
-import {getProfileError} from "features/editableProfileCard/model/selector/getProfileError/getProfileError";
-import {getProfileReadonly} from "features/editableProfileCard/model/selector/getProfileReadonly/getProfileReadonly";
+import {getProfileForm} from "@/features/editableProfileCard/model/selector/getProfileForm/getProfileForm";
+import {getProfileLoading} from "@/features/editableProfileCard/model/selector/getProfileLoading/getProfileLoading";
+import {getProfileError} from "@/features/editableProfileCard/model/selector/getProfileError/getProfileError";
+import {getProfileReadonly} from "@/features/editableProfileCard/model/selector/getProfileReadonly/getProfileReadonly";
 import {
     getProfileValidateErrors
-} from "features/editableProfileCard/model/selector/getProfileValidateErrors/getProfileValidateErrors";
-import {profileActions} from "features/editableProfileCard/model/slice/profileSlice";
-import {fetchProfileData} from "features/editableProfileCard/model/services/fetchProfileData/fetchProfileData";
+} from "@/features/editableProfileCard/model/selector/getProfileValidateErrors/getProfileValidateErrors";
+import {profileActions} from "@/features/editableProfileCard/model/slice/profileSlice";
+import {fetchProfileData} from "@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData";
 import {ProfileCard} from "@/entities/Profile";
-import {classNames} from "@/shared/lib/classNames/classNames";
-import cls from "@/entities/Profile/ui/ProfileCard/ProfileCard.module.scss";
-import {Loader} from "@/shared/ui/Loader/Loader";
-import {ValidateProfileError} from "features/editableProfileCard/model/consts/consts";
+import {ValidateProfileError} from "@/features/editableProfileCard/model/consts/consts";
 
 interface EditableProfileCardProps {
     className?: string;

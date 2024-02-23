@@ -2,8 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import {Profile} from "@/entities/Profile";
-import {ProfileSchema} from "features/editableProfileCard/model/type/editableProfileCardTypes";
-import {ValidateProfileError} from "features/editableProfileCard/model/consts/consts";
+import {ProfileSchema} from "@/features/editableProfileCard/model/type/editableProfileCardTypes";
 
 const initialState: ProfileSchema = {
     data: undefined,

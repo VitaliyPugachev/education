@@ -5,14 +5,14 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page/Page';
 import { ProfilePageHeader } from '../../ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
-import {EditableProfileCard} from "features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard";
-import {profileReducer} from "features/editableProfileCard/model/slice/profileSlice";
+import {EditableProfileCard} from "@/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard";
+import {profileReducer} from "@/features/editableProfileCard/model/slice/profileSlice";
 import {VStack} from "@/shared/ui/Stack";
 import {useParams} from "react-router-dom";
 import cls from "@/entities/Profile/ui/ProfileCard/ProfileCard.module.scss";
 import {Loader} from "@/shared/ui/Loader/Loader";
 import {useSelector} from "react-redux";
-import {getProfileLoading} from "features/editableProfileCard/model/selector/getProfileLoading/getProfileLoading";
+import {getProfileLoading} from "@/features/editableProfileCard/model/selector/getProfileLoading/getProfileLoading";
 
 interface ProfilePageProps {
     className?: string;

@@ -23,8 +23,6 @@ export const Modal = ({
     className, children, isOpen, onClose, lazy,
 }: ModalProps) => {
 
-    const { theme } = useTheme();
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const {isMounted, isClosing, close} = useModal({isOpen, onClose, animationDelay: ANIMATION_DELAY});
 
     const mods: Mods = {
@@ -39,7 +37,7 @@ export const Modal = ({
     return (
         <div className={classNames(cls.Modal, mods, [className])}>
             <Overlay onClick={close}/>
-            <div className={cls.content} onClick={close}>
+            <div className={cls.content}>
                 {children}
             </div>
         </div>

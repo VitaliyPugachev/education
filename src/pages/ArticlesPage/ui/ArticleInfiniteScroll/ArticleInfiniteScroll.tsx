@@ -41,7 +41,6 @@ export const ArticleInfiniteScroll = memo(({className}: ArticleInfiniteScrollPro
             <Text text={'Возникла ошибка'}/>
         )
     }
-
     return (
         <ArticleList
             isLoading={isLoading}

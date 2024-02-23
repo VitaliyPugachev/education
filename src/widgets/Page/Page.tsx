@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { scrollSaveActions } from '@/features/ScrollSave';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getScrollSave } from 'features/ScrollSave/selectors/scrollSaveSelectors';
+import { getScrollSave } from '@/features/ScrollSave/selectors/scrollSaveSelectors';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 

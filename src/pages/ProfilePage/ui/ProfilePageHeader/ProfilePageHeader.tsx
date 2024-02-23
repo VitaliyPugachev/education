@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
-import {getProfileReadonly} from "features/editableProfileCard/model/selector/getProfileReadonly/getProfileReadonly";
-import {getProfileData} from "features/editableProfileCard/model/selector/getProfileData/getProfileData";
+import {getProfileReadonly} from "@/features/editableProfileCard/model/selector/getProfileReadonly/getProfileReadonly";
+import {getProfileData} from "@/features/editableProfileCard/model/selector/getProfileData/getProfileData";
 import {getUserAuthData} from "@/entities/user";
-import {profileActions} from "features/editableProfileCard/model/slice/profileSlice";
-import {updateProfileData} from "features/editableProfileCard/model/services/updateProfileData/updateProfileData";
+import {profileActions} from "@/features/editableProfileCard/model/slice/profileSlice";
+import {updateProfileData} from "@/features/editableProfileCard/model/services/updateProfileData/updateProfileData";
 
 interface ProfilePageHeaderProps {
     className?: string;
