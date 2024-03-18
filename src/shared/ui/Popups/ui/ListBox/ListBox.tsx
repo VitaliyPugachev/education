@@ -42,7 +42,7 @@ export function ListBox(props: ListBoxProps) {
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button>
+                <HListBox.Button as={'div'}>
                     <Button>
                         {value ?? defaultValue}
                     </Button>

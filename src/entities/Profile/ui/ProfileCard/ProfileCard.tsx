@@ -1,15 +1,14 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
-import { Input } from '@/shared/ui/Input/Input';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Currency } from '@/entities/Currency/model/types/currency';
-import { CurrencySelect } from '@/entities/Currency';
-import { Country } from '@/entities/Country/model/types/country';
-import { SelectCountry } from '@/entities/Country';
-import { VStack, HStack } from '@/shared/ui/Stack';
-import { Profile } from '../../model/type/profile';
+import {classNames, Mods} from '@/shared/lib/classNames/classNames';
+import {useTranslation} from 'react-i18next';
+import {Text, TextAlign, TextTheme} from '@/shared/ui/Text/Text';
+import {Input} from '@/shared/ui/Input/Input';
+import {Avatar} from '@/shared/ui/Avatar/Avatar';
+import {Currency} from '@/entities/Currency/model/types/currency';
+import {CurrencySelect} from '@/entities/Currency';
+import {Country} from '@/entities/Country/model/types/country';
+import {SelectCountry} from '@/entities/Country';
+import {HStack, VStack} from '@/shared/ui/Stack';
+import {Profile} from '../../model/type/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -73,7 +72,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 </HStack>
                 <VStack gap="16">
                     <Input
-                        value={formData?.username}
+                        value={formData?.username || ''}
                         placeholder={t('Имя пользователя')}
                         className={cls.input}
                         onChange={onChangeUsername}
@@ -81,35 +80,35 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         data-testid={'ProfileCard.Username'}
                     />
                     <Input
-                        value={formData?.name}
+                        value={formData?.name || ''}
                         placeholder={t('Ваше имя')}
                         className={cls.input}
                         onChange={onChangeName}
                         readonly={readonly}
                     />
                     <Input
-                        value={formData?.lastname}
+                        value={formData?.lastname || ''}
                         placeholder={t('Ваша фамилия')}
                         className={cls.input}
                         onChange={onChangeLastname}
                         readonly={readonly}
                     />
                     <Input
-                        value={formData?.age}
+                        value={formData?.age || ''}
                         placeholder={t('Ваш возраст')}
                         className={cls.input}
                         onChange={onChangeAge}
                         readonly={readonly}
                     />
                     <Input
-                        value={formData?.city}
+                        value={formData?.city || ''}
                         placeholder={t('Город')}
                         className={cls.input}
                         onChange={onChangeCity}
                         readonly={readonly}
                     />
                     <Input
-                        value={formData?.avatar}
+                        value={formData?.avatar || ''}
                         placeholder={t('Ссылка на аватар')}
                         className={cls.input}
                         onChange={onChangeAvatar}
@@ -118,13 +117,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     <SelectCountry
                         onChange={onChangeCountry}
                         readonly={readonly}
-                        value={formData?.country}
+                        value={formData?.country || Country.Russia}
                         label={t('Страна')}
                     />
                     <CurrencySelect
                         onChange={onChangeCurrency}
                         readonly={readonly}
-                        value={formData?.currency}
+                        value={formData?.currency || Currency.RUB}
                     />
                 </VStack>
 

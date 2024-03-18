@@ -732,5 +732,98 @@
       "userId": 1,
       "href": "http://localhost:3000/admin"
     }
+  ],
+  "articles-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Good article",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Nice",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "id": "3",
+      "rate": 4,
+      "feedback": "Good article",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "userRate": 4,
+      "id": "cLioU-l"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "userRate": 4,
+      "id": "E4AUR1w"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "userRate": 4,
+      "feedback": "",
+      "id": "UihBTsp"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 5,
+      "feedback": "",
+      "id": "V-OW2os"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "feedback": "",
+      "id": "sbFHIfY"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 5,
+      "feedback": "",
+      "id": "ve_4B-R"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 1,
+      "feedback": "",
+      "id": "9_IbTFA"
+    }
+  ],
+  "profile-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Good article",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Nice",
+      "userId": "2",
+      "profileId": "1"
+    },
+    {
+      "id": "3",
+      "rate": 4,
+      "feedback": "Good article",
+      "userId": "2",
+      "profileId": "1"
+    }
   ]
 }

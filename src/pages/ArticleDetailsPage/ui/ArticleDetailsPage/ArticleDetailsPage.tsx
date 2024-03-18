@@ -13,6 +13,7 @@ import cls from './ArticleDetailsPage.module.scss';
 import {VStack} from "@/shared/ui/Stack";
 import {ArticleRecommendationsList} from "@/features/ArticleRecommendationList";
 import {ArticleDetailsComments} from "@/pages/ArticleDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments";
+import {ArticleRating} from "@/features/articleRating";
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -35,6 +36,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         articleDetailsRecommendations: articleDetailsPageRecommendReducer,
     };
 
+    console.log(id);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
                 <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -42,6 +45,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                         <ArticleDetailsPageHeader id={id} />
                         <ArticleDetails articleId={id} />
                         <ArticleRecommendationsList/>
+                        <ArticleRating articleId={id}/>
                         <ArticleDetailsComments id={id}/>
                     </VStack>
                 </Page>

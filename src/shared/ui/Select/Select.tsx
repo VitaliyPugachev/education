@@ -33,11 +33,11 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         <option
             className={cls.option}
             value={opt.value}
-            key={value}
+            key={opt.value}
         >
             {opt.content}
         </option>
-    )), [options, value]);
+    )), []);
 
     const mods: Mods = {
 
@@ -47,7 +47,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         if (onChange) {
             onChange(e.target.value as T);
         }
-    }, [onChange]);
+    }, []);
 
     return (
         <div className={classNames(cls.Wrapper, {}, [className])}>
